@@ -195,12 +195,6 @@ public class BugCrashClassifier implements IHackModel {
 		}
 	}
 
-
-	public void evaluate() {
-
-	}
-
-
 	public void evaluate(int kfold) {
 		//to evaluate, repeat the learn method
 		learn();

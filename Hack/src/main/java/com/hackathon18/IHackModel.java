@@ -8,6 +8,6 @@ package com.hackathon18;
 public interface IHackModel {
 	public void saveModel(String modelLocation);
 	public void learn();
-	public void evaluate();
+	public void evaluate(int kfold);
 	public void loadDataSet(String dataSetFileName);
 }
