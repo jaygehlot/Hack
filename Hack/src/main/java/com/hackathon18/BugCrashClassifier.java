@@ -1,16 +1,12 @@
 package com.hackathon18;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.*;
 
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
 
+import org.springframework.util.ResourceUtils;
 import weka.attributeSelection.InfoGainAttributeEval;
 import weka.attributeSelection.Ranker;
 import weka.classifiers.bayes.NaiveBayes;
@@ -107,11 +103,13 @@ public class BugCrashClassifier implements IHackModel {
 	 * @throws IOException
 	 */
 	private void loadTrainingData(String trainingDataFile) throws FileNotFoundException, IOException {
-		try (BufferedReader reader = Files.newBufferedReader(Paths.get(trainingDataFile))) {
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(
+				this.getClass().getResourceAsStream("/" + trainingDataFile)))) {
 			ArffReader arffFile = new ArffReader(reader);
 			trainingData = arffFile.getData();
 			System.out.println("Importing training data for Bug-Crash classifier from " + trainingDataFile);
 		}
+
 	}
 	
 	/**
