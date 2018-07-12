@@ -93,7 +93,7 @@ public class BugCrashClassifier implements IHackModel {
 	
 	/**
 	 * 
-	 * @param n
+	 * @param
 	 */
 	public void setWordsToKeepForFilter() {
 		if(filter != null) {
@@ -195,7 +195,12 @@ public class BugCrashClassifier implements IHackModel {
 		}
 	}
 
-	@Override
+
+	public void evaluate() {
+
+	}
+
+
 	public void evaluate(int kfold) {
 		//to evaluate, repeat the learn method
 		learn();
